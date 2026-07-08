@@ -1,5 +1,9 @@
 # Meridian — Travel Booking Website (Frontend Only)
 
+
+🔗 **Live Demo:** [https://divya408.github.io/travel-booking/](https://divya408.github.io/travel-booking/)
+
+
 A fully static, frontend-only travel booking website. No backend, database, or API calls — every "Book Now" / "Search" / form submission is a UI-only demo (shows a toast notification).
 
 ## Run it
