@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian — Travel Further, Book Smarter</title>
+<meta name="description" content="Meridian is a modern travel booking experience — discover destinations, hotels and curated packages, and book your next journey with confidence.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Bootstrap grid utilities -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!-- AOS -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<!-- Site styles -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-mark">Meridian</div>
+  <div class="loader-bar"></div>
+  <div class="loader-coord">41.9028° N · 12.4964° E — CHARTING YOUR ROUTE</div>
+</div>
+
+<div id="scroll-progress"></div>
+
+<!-- Navbar -->
+<nav class="m-nav">
+  <div class="container-x">
+    <a href="index.html" class="m-brand"><span class="dot"></span>Meridian</a>
+    <ul class="m-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="hotels.html">Hotels</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="m-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <a href="packages.html" class="btn-nav-cta d-none d-md-inline-flex">Book a Trip</a>
+      <button class="m-burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile panel -->
+<div class="m-mobile-panel">
+  <button class="m-mobile-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="destinations.html">Destinations</a>
+  <a href="hotels.html">Hotels</a>
+  <a href="packages.html">Packages</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="flight-path" aria-hidden="true">
+    <i class="fa-solid fa-compass float-icon" style="top:22%; left:8%; font-size:2rem;"></i>
+    <i class="fa-solid fa-paper-plane float-icon" style="top:38%; right:12%; font-size:1.6rem; animation-delay:1.5s;"></i>
+    <i class="fa-solid fa-map-location-dot float-icon" style="bottom:18%; left:14%; font-size:1.8rem; animation-delay:.8s;"></i>
+  </div>
+  <div class="container-x hero-inner">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <div class="hero-eyebrow" data-aos="fade-up">⌖ 1,240 routes charted worldwide</div>
+        <h1 data-aos="fade-up" data-aos-delay="80">Book journeys to <em class="typewriter" data-words='["the Amalfi Coast","Kyoto","Marrakech","Patagonia","Santorini"]'></em></h1>
+        <p data-aos="fade-up" data-aos-delay="160">Meridian plots the route, finds the stay, and holds the itinerary together — so the only thing left to plan is what you'll wear on the plane.</p>
+        <div data-aos="fade-up" data-aos-delay="240">
+          <a href="destinations.html" class="btn-m btn-m-primary">Explore Destinations <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="packages.html" class="btn-m btn-m-ghost-light ms-2">View Packages</a>
+        </div>
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="320">
+          <div class="hero-stat"><b>128k+</b><span>Travelers Booked</span></div>
+          <div class="hero-stat"><b>94</b><span>Countries Covered</span></div>
+          <div class="hero-stat"><b>4.9/5</b><span>Average Rating</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BOOKING FORM -->
+<div class="container-x">
+  <div class="booking-card" data-aos="fade-up">
+    <span class="coord">SEARCH · ORIGIN UNKNOWN → DESTINATION SELECTED</span>
+    <form class="booking-grid" id="booking-form" novalidate>
+      <div class="field">
+        <label for="destination">Destination</label>
+        <input type="text" id="destination" placeholder="Where to?">
+        <div class="field-error">Enter a destination</div>
+      </div>
+      <div class="field">
+        <label for="checkin">Check-in</label>
+        <input type="date" id="checkin">
+        <div class="field-error">Pick a check-in date</div>
+      </div>
+      <div class="field">
+        <label for="checkout">Check-out</label>
+        <input type="date" id="checkout">
+        <div class="field-error">Must be after check-in</div>
+      </div>
+      <div class="field">
+        <label for="adults">Adults / Children</label>
+        <select id="adults">
+          <option value="1">1 Adult</option>
+          <option value="2" selected>2 Adults</option>
+          <option value="3">2 Adults, 1 Child</option>
+          <option value="4">2 Adults, 2 Children</option>
+        </select>
+        <div class="field-error">At least 1 adult required</div>
+      </div>
+      <div class="field booking-submit">
+        <label>&nbsp;</label>
+        <button type="submit" class="btn-m btn-m-primary btn-block">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- POPULAR DESTINATIONS -->
+<section class="section" id="destinations">
+  <div class="container-x">
+    <div class="d-flex flex-wrap justify-content-between align-items-end gap-3" data-aos="fade-up">
+      <div>
+        <span class="eyebrow">Popular Routes</span>
+        <h2 class="section-title">Where travelers are headed this season</h2>
+      </div>
+      <a href="destinations.html" class="btn-m btn-m-outline">All Destinations <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="row g-4 mt-2">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="card-dest">
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=700&q=80" alt="Swiss Alps mountains">
+            <span class="badge-cat">Mountains</span>
+            <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+          </div>
+          <div class="body">
+            <h4>Interlaken</h4>
+            <span class="coord">46.6863° N, 7.8632° E</span>
+            <div class="meta">
+              <div class="price"><b>$1,240</b><span> / 6 days</span></div>
+              <a href="destinations.html" class="btn-m btn-m-outline" style="padding:9px 16px; font-size:.8rem;">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="80">
+        <div class="card-dest">
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=700&q=80" alt="Dubai skyline">
+            <span class="badge-cat">City</span>
+            <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
+          </div>
+          <div class="body">
+            <h4>Dubai</h4>
+            <span class="coord">25.2048° N, 55.2708° E</span>
+            <div class="meta">
+              <div class="price"><b>$980</b><span> / 5 days</span></div>
+              <a href="destinations.html" class="btn-m btn-m-outline" style="padding:9px 16px; font-size:.8rem;">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="160">
+        <div class="card-dest">
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=700&q=80" alt="Santorini Greece">
+            <span class="badge-cat">Islands</span>
+            <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
+          </div>
+          <div class="body">
+            <h4>Santorini</h4>
+            <span class="coord">36.3932° N, 25.4615° E</span>
+            <div class="meta">
+              <div class="price"><b>$1,560</b><span> / 7 days</span></div>
+              <a href="destinations.html" class="btn-m btn-m-outline" style="padding:9px 16px; font-size:.8rem;">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="240">
+        <div class="card-dest">
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=700&q=80" alt="Bali temple">
+            <span class="badge-cat">Tropical</span>
+            <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+          </div>
+          <div class="body">
+            <h4>Bali</h4>
+            <span class="coord">8.3405° S, 115.0920° E</span>
+            <div class="meta">
+              <div class="price"><b>$890</b><span> / 6 days</span></div>
+              <a href="destinations.html" class="btn-m btn-m-outline" style="padding:9px 16px; font-size:.8rem;">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section-tight" style="background:var(--sand-2);">
+  <div class="container-x">
+    <span class="eyebrow" data-aos="fade-up">Why Meridian</span>
+    <h2 class="section-title" data-aos="fade-up">Booking a trip shouldn't feel like customs</h2>
+    <div class="row g-4 mt-3">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fa-solid fa-tags"></i></div>
+          <h5>Best Price Promise</h5>
+          <p class="text-muted-m mb-0">Find it cheaper elsewhere within 24 hours and we'll match it, no questions asked.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="80">
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fa-solid fa-headset"></i></div>
+          <h5>24/7 Trip Support</h5>
+          <p class="text-muted-m mb-0">Real humans on call around the clock for delays, rebooking, or last-minute changes.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="160">
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fa-solid fa-shield-heart"></i></div>
+          <h5>Flexible Cancellation</h5>
+          <p class="text-muted-m mb-0">Plans change. Most bookings can be rescheduled free of charge up to 48 hours out.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="240">
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fa-solid fa-route"></i></div>
+          <h5>Curated Routes</h5>
+          <p class="text-muted-m mb-0">Every package is scouted and mapped by travelers who've actually been there.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS / DEPARTURE BOARD -->
+<section class="section-tight">
+  <div class="container-x">
+    <div class="dep-board" data-aos="zoom-in">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-md-3">
+          <div class="dep-stat"><div class="dep-num" data-count="128000" data-suffix="+">0</div><div class="dep-label">Travelers</div></div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dep-stat"><div class="dep-num" data-count="94">0</div><div class="dep-label">Countries</div></div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dep-stat"><div class="dep-num" data-count="1240">0</div><div class="dep-label">Routes Charted</div></div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dep-stat"><div class="dep-num" data-count="15" data-suffix=" yrs">0</div><div class="dep-label">In Operation</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PACKAGES -->
+<section class="section" style="background:var(--sand-2);">
+  <div class="container-x">
+    <div class="d-flex flex-wrap justify-content-between align-items-end gap-3" data-aos="fade-up">
+      <div>
+        <span class="eyebrow">Boarding Now</span>
+        <h2 class="section-title">Featured packages</h2>
+      </div>
+      <a href="packages.html" class="btn-m btn-m-outline">All Packages <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="swiper featured-swiper mt-4" data-aos="fade-up">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="pass">
+            <div class="pass-img"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80" alt="Paris package"></div>
+            <div class="pass-stub">
+              <span class="pass-notch-top"></span><span class="pass-notch-bottom"></span><span class="pass-perf"></span>
+              <span class="coord">JFK → CDG</span>
+              <div class="pass-route"><span>DEPART</span><span class="dots"></span><span>ARRIVE</span></div>
+              <h5 class="pass-title">Romantic Paris Escape</h5>
+              <p class="text-muted-m" style="font-size:.88rem;">Seine river cruise, Louvre skip-the-line, and a sunset at Montmartre.</p>
+              <div class="pass-feat"><span>5D / 4N</span><span>Breakfast</span><span>Flights</span></div>
+              <div class="pass-foot">
+                <div class="pass-price"><b>$1,120</b><span>per person</span></div>
+                <a href="packages.html" class="btn-m btn-m-primary" style="padding:10px 18px; font-size:.8rem;">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="pass">
+            <div class="pass-img"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=600&q=80" alt="Japan package"></div>
+            <div class="pass-stub">
+              <span class="pass-notch-top"></span><span class="pass-notch-bottom"></span><span class="pass-perf"></span>
+              <span class="coord">LAX → NRT</span>
+              <div class="pass-route"><span>DEPART</span><span class="dots"></span><span>ARRIVE</span></div>
+              <h5 class="pass-title">Kyoto & Tokyo Discovery</h5>
+              <p class="text-muted-m" style="font-size:.88rem;">Bullet train transfers, temple trails, and a night in Shinjuku.</p>
+              <div class="pass-feat"><span>8D / 7N</span><span>Rail Pass</span><span>Guide</span></div>
+              <div class="pass-foot">
+                <div class="pass-price"><b>$2,340</b><span>per person</span></div>
+                <a href="packages.html" class="btn-m btn-m-primary" style="padding:10px 18px; font-size:.8rem;">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="pass">
+            <div class="pass-img"><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=600&q=80" alt="Bali package"></div>
+            <div class="pass-stub">
+              <span class="pass-notch-top"></span><span class="pass-notch-bottom"></span><span class="pass-perf"></span>
+              <span class="coord">SIN → DPS</span>
+              <div class="pass-route"><span>DEPART</span><span class="dots"></span><span>ARRIVE</span></div>
+              <h5 class="pass-title">Bali Wellness Retreat</h5>
+              <p class="text-muted-m" style="font-size:.88rem;">Rice terrace hikes, private villa, and two spa days in Ubud.</p>
+              <div class="pass-feat"><span>6D / 5N</span><span>Spa</span><span>Villa</span></div>
+              <div class="pass-foot">
+                <div class="pass-price"><b>$1,480</b><span>per person</span></div>
+                <a href="packages.html" class="btn-m btn-m-primary" style="padding:10px 18px; font-size:.8rem;">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="pass">
+            <div class="pass-img"><img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?auto=format&fit=crop&w=600&q=80" alt="Maldives package"></div>
+            <div class="pass-stub">
+              <span class="pass-notch-top"></span><span class="pass-notch-bottom"></span><span class="pass-perf"></span>
+              <span class="coord">DXB → MLE</span>
+              <div class="pass-route"><span>DEPART</span><span class="dots"></span><span>ARRIVE</span></div>
+              <h5 class="pass-title">Maldives Overwater</h5>
+              <p class="text-muted-m" style="font-size:.88rem;">Overwater bungalow, snorkeling excursions, and seaplane transfer.</p>
+              <div class="pass-feat"><span>5D / 4N</span><span>All-Inclusive</span><span>Seaplane</span></div>
+              <div class="pass-foot">
+                <div class="pass-price"><b>$2,890</b><span>per person</span></div>
+                <a href="packages.html" class="btn-m btn-m-primary" style="padding:10px 18px; font-size:.8rem;">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="d-flex gap-2 mt-4">
+      <button class="btn-m btn-m-outline featured-swiper-prev" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+      <button class="btn-m btn-m-outline featured-swiper-next" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container-x">
+    <span class="eyebrow" data-aos="fade-up">Field Reports</span>
+    <h2 class="section-title" data-aos="fade-up">What travelers are saying</h2>
+
+    <div class="swiper testimonial-swiper mt-4" data-aos="fade-up">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="feat-card h-100">
+            <span class="quote-mark">&ldquo;</span>
+            <p class="text-muted-m">Meridian's itinerary held up even when our connecting flight didn't. Rebooked us into a better hotel within the hour.</p>
+            <div class="d-flex align-items-center gap-3 mt-3">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" class="avatar-ring" alt="Traveler avatar">
+              <div><b>Amara Chen</b><div class="coord">Booked: Santorini</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="feat-card h-100">
+            <span class="quote-mark">&ldquo;</span>
+            <p class="text-muted-m">The Kyoto package was worth every yen — rail passes ready before we even landed at Narita.</p>
+            <div class="d-flex align-items-center gap-3 mt-3">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="avatar-ring" alt="Traveler avatar">
+              <div><b>Daniel Osei</b><div class="coord">Booked: Kyoto</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="feat-card h-100">
+            <span class="quote-mark">&ldquo;</span>
+            <p class="text-muted-m">Booked a Bali villa in ten minutes on my phone during a layover. Everything just matched the listing.</p>
+            <div class="d-flex align-items-center gap-3 mt-3">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" class="avatar-ring" alt="Traveler avatar">
+              <div><b>Priya Nair</b><div class="coord">Booked: Bali</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="feat-card h-100">
+            <span class="quote-mark">&ldquo;</span>
+            <p class="text-muted-m">Support picked up at 2am local time when our transfer never showed. Genuinely 24/7.</p>
+            <div class="d-flex align-items-center gap-3 mt-3">
+              <img src="https://randomuser.me/api/portraits/men/76.jpg" class="avatar-ring" alt="Traveler avatar">
+              <div><b>Marco Ferretti</b><div class="coord">Booked: Dubai</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination mt-3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-tight" style="background:var(--sand-2);">
+  <div class="container-x">
+    <div class="row">
+      <div class="col-lg-5" data-aos="fade-up">
+        <span class="eyebrow">Before You Fly</span>
+        <h2 class="section-title">Frequently asked questions</h2>
+        <p class="section-sub">Can't find your answer here? Our route desk is staffed around the clock.</p>
+        <a href="contact.html" class="btn-m btn-m-outline mt-3">Contact Support</a>
+      </div>
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="120">
+        <div class="faq-item open">
+          <div class="faq-q"><span><span class="idx">01</span>Can I cancel or reschedule a booking?</span><i class="fa-solid fa-plus faq-icon"></i></div>
+          <div class="faq-a">Yes — most fares and packages can be rescheduled free of charge up to 48 hours before departure. Non-refundable rates are marked clearly at checkout.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span><span class="idx">02</span>Do prices include taxes and fees?</span><i class="fa-solid fa-plus faq-icon"></i></div>
+          <div class="faq-a">All prices shown include applicable taxes and service fees. The only additions are optional extras you select during booking, like seat upgrades.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span><span class="idx">03</span>Is travel insurance included?</span><i class="fa-solid fa-plus faq-icon"></i></div>
+          <div class="faq-a">Basic trip protection is included on package bookings. Comprehensive medical and cancellation cover can be added at checkout.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span><span class="idx">04</span>How does the Best Price Promise work?</span><i class="fa-solid fa-plus faq-icon"></i></div>
+          <div class="faq-a">Find an identical itinerary cheaper elsewhere within 24 hours of booking, and we'll refund the difference — no forms, just a message to support.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section-tight">
+  <div class="container-x">
+    <div class="newsletter d-flex flex-wrap justify-content-between align-items-center gap-4" data-aos="zoom-in">
+      <div>
+        <span class="eyebrow" style="color:var(--rust);">Stay Charted</span>
+        <h3 class="font-display" style="font-size:1.8rem; margin:10px 0 6px;">Get fare drops before they board</h3>
+        <p class="text-sand-muted mb-0" style="color:var(--text-sand-muted); max-width:420px;">One email a week. No spam, just routes worth taking.</p>
+      </div>
+      <form class="newsletter-form">
+        <input type="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn-m btn-m-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container-x">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand mb-3"><span class="dot" style="width:8px;height:8px;background:var(--rust);border-radius:50%;display:inline-block;margin-right:8px;"></span>Meridian</div>
+        <p style="max-width:320px;">Charting routes for the curious since 2011. Every itinerary is mapped by someone who has actually made the trip.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Explore</h6>
+        <ul>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="hotels.html">Hotels</a></li>
+          <li><a href="packages.html">Packages</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Company</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Support</h6>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Cancellations</a></li>
+          <li><a href="#">Travel Insurance</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Travel. All rights reserved.</span>
+      <span class="coord">Frontend demo · No backend connected</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="toast-stack"></div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="js/main.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/slider.js"></script>
+</body>
+</html>

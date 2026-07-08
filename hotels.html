@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotels — Meridian</title>
+<meta name="description" content="Browse hand-picked hotels and stays with real facilities, ratings, and nightly rates.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-mark">Meridian</div>
+  <div class="loader-bar"></div>
+  <div class="loader-coord">LOADING CHART — HOTELS</div>
+</div>
+<div id="scroll-progress"></div>
+
+<nav class="m-nav">
+  <div class="container-x">
+    <a href="index.html" class="m-brand"><span class="dot"></span>Meridian</a>
+    <ul class="m-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="hotels.html">Hotels</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="m-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <a href="packages.html" class="btn-nav-cta d-none d-md-inline-flex">Book a Trip</a>
+      <button class="m-burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="m-mobile-panel">
+  <button class="m-mobile-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="destinations.html">Destinations</a>
+  <a href="hotels.html">Hotels</a>
+  <a href="packages.html">Packages</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<header class="page-header" style="background:linear-gradient(180deg, rgba(16,32,43,.3), rgba(16,32,43,.9)), url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1800&q=80') center/cover;">
+  <div class="container-x">
+    <div class="breadcrumb-m"><a href="index.html">Home</a> / Hotels</div>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.6rem); font-weight:500;">Stays worth the layover</h1>
+    <p style="max-width:520px; color:var(--text-sand-muted);">From boutique riads to overwater villas — every listing inspected in person.</p>
+  </div>
+</header>
+
+<section class="section-tight">
+  <div class="container-x">
+    <div class="d-flex flex-wrap gap-3 justify-content-between align-items-center mb-4" data-aos="fade-up">
+      <div class="search-bar" style="max-width:420px; flex:1;">
+        <i class="fa-solid fa-magnifying-glass text-muted-m"></i>
+        <input type="text" placeholder="Search hotels…" data-search-target="#hotel-grid" aria-label="Search hotels">
+        <button aria-label="Search"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <div class="filter-row" data-target="#hotel-grid">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="luxury">Luxury</button>
+        <button class="pill" data-filter="boutique">Boutique</button>
+        <button class="pill" data-filter="resort">Resort</button>
+        <button class="pill" data-filter="budget">Budget</button>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column gap-4" id="hotel-grid">
+
+      <div data-cat="luxury" data-name="The Burj Residence Dubai" data-aos="fade-up">
+        <div class="card-hotel">
+          <div class="h-img"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=700&q=80" alt="The Burj Residence"></div>
+          <div class="h-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <div><h4 class="mb-1">The Burj Residence</h4><span class="coord">Dubai, UAE</span></div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="facility-row">
+              <span><i class="fa-solid fa-wifi"></i> Free Wi-Fi</span>
+              <span><i class="fa-solid fa-person-swimming"></i> Infinity Pool</span>
+              <span><i class="fa-solid fa-spa"></i> Spa</span>
+              <span><i class="fa-solid fa-utensils"></i> Fine Dining</span>
+            </div>
+            <div class="h-foot">
+              <div class="price"><b>$420</b><span class="coord d-block">per night</span></div>
+              <a href="#" class="btn-m btn-m-primary" data-demo-toast="Booking held — demo only, no backend connected" style="padding:11px 20px; font-size:.85rem;">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-cat="boutique" data-name="Riad Yasmine Marrakech" data-aos="fade-up" data-aos-delay="60">
+        <div class="card-hotel">
+          <div class="h-img"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=700&q=80" alt="Riad Yasmine"></div>
+          <div class="h-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <div><h4 class="mb-1">Riad Yasmine</h4><span class="coord">Marrakech, Morocco</span></div>
+              <div class="stars">★★★★☆</div>
+            </div>
+            <div class="facility-row">
+              <span><i class="fa-solid fa-wifi"></i> Free Wi-Fi</span>
+              <span><i class="fa-solid fa-mug-hot"></i> Rooftop Cafe</span>
+              <span><i class="fa-solid fa-hot-tub-person"></i> Hammam</span>
+            </div>
+            <div class="h-foot">
+              <div class="price"><b>$140</b><span class="coord d-block">per night</span></div>
+              <a href="#" class="btn-m btn-m-primary" data-demo-toast="Booking held — demo only, no backend connected" style="padding:11px 20px; font-size:.85rem;">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-cat="resort" data-name="Ubud Canopy Retreat Bali" data-aos="fade-up" data-aos-delay="120">
+        <div class="card-hotel">
+          <div class="h-img"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=700&q=80" alt="Ubud Canopy Retreat"></div>
+          <div class="h-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <div><h4 class="mb-1">Ubud Canopy Retreat</h4><span class="coord">Bali, Indonesia</span></div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="facility-row">
+              <span><i class="fa-solid fa-leaf"></i> Jungle View</span>
+              <span><i class="fa-solid fa-spa"></i> Yoga Deck</span>
+              <span><i class="fa-solid fa-person-swimming"></i> Private Pool</span>
+            </div>
+            <div class="h-foot">
+              <div class="price"><b>$210</b><span class="coord d-block">per night</span></div>
+              <a href="#" class="btn-m btn-m-primary" data-demo-toast="Booking held — demo only, no backend connected" style="padding:11px 20px; font-size:.85rem;">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-cat="luxury" data-name="Caldera Cliffside Santorini" data-aos="fade-up">
+        <div class="card-hotel">
+          <div class="h-img"><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=700&q=80" alt="Caldera Cliffside"></div>
+          <div class="h-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <div><h4 class="mb-1">Caldera Cliffside</h4><span class="coord">Santorini, Greece</span></div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="facility-row">
+              <span><i class="fa-solid fa-water"></i> Caldera View</span>
+              <span><i class="fa-solid fa-champagne-glasses"></i> Wine Terrace</span>
+              <span><i class="fa-solid fa-hot-tub-person"></i> Private Jacuzzi</span>
+            </div>
+            <div class="h-foot">
+              <div class="price"><b>$380</b><span class="coord d-block">per night</span></div>
+              <a href="#" class="btn-m btn-m-primary" data-demo-toast="Booking held — demo only, no backend connected" style="padding:11px 20px; font-size:.85rem;">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-cat="budget" data-name="Shinjuku Capsule House Tokyo" data-aos="fade-up" data-aos-delay="60">
+        <div class="card-hotel">
+          <div class="h-img"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80" alt="Shinjuku Capsule House"></div>
+          <div class="h-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <div><h4 class="mb-1">Shinjuku Capsule House</h4><span class="coord">Tokyo, Japan</span></div>
+              <div class="stars">★★★☆☆</div>
+            </div>
+            <div class="facility-row">
+              <span><i class="fa-solid fa-wifi"></i> Free Wi-Fi</span>
+              <span><i class="fa-solid fa-train"></i> Near Station</span>
+              <span><i class="fa-solid fa-mug-saucer"></i> Lounge</span>
+            </div>
+            <div class="h-foot">
+              <div class="price"><b>$62</b><span class="coord d-block">per night</span></div>
+              <a href="#" class="btn-m btn-m-primary" data-demo-toast="Booking held — demo only, no backend connected" style="padding:11px 20px; font-size:.85rem;">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-cat="resort" data-name="Overwater Bungalows Maldives" data-aos="fade-up" data-aos-delay="120">
+        <div class="card-hotel">
+          <div class="h-img"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=700&q=80" alt="Overwater Bungalows"></div>
+          <div class="h-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <div><h4 class="mb-1">Overwater Bungalows</h4><span class="coord">Maldives</span></div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="facility-row">
+              <span><i class="fa-solid fa-water"></i> Lagoon Access</span>
+              <span><i class="fa-solid fa-fish"></i> Snorkeling</span>
+              <span><i class="fa-solid fa-champagne-glasses"></i> All-Inclusive</span>
+            </div>
+            <div class="h-foot">
+              <div class="price"><b>$540</b><span class="coord d-block">per night</span></div>
+              <a href="#" class="btn-m btn-m-primary" data-demo-toast="Booking held — demo only, no backend connected" style="padding:11px 20px; font-size:.85rem;">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container-x">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand mb-3"><span style="width:8px;height:8px;background:var(--rust);border-radius:50%;display:inline-block;margin-right:8px;"></span>Meridian</div>
+        <p style="max-width:320px;">Charting routes for the curious since 2011. Every itinerary is mapped by someone who has actually made the trip.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6"><h6>Explore</h6><ul><li><a href="destinations.html">Destinations</a></li><li><a href="hotels.html">Hotels</a></li><li><a href="packages.html">Packages</a></li></ul></div>
+      <div class="col-lg-2 col-6"><h6>Company</h6><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div class="col-lg-2 col-6"><h6>Support</h6><ul><li><a href="#">Help Center</a></li><li><a href="#">Cancellations</a></li><li><a href="#">Travel Insurance</a></li></ul></div>
+      <div class="col-lg-2 col-6"><h6>Legal</h6><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Travel. All rights reserved.</span>
+      <span class="coord">Frontend demo · No backend connected</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="toast-stack"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="js/main.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/slider.js"></script>
+</body>
+</html>

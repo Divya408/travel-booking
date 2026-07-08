@@ -1,0 +1,45 @@
+/* ==========================================================================
+   RESPONSIVE — mobile-first breakpoints
+   ========================================================================== */
+
+@media (max-width: 1100px){
+  .booking-grid{grid-template-columns:repeat(3,1fr);}
+  .pass{grid-template-columns:1fr;}
+  .pass-img{min-height:200px;}
+}
+
+@media (max-width: 991px){
+  .m-links{display:none;}
+  .m-burger{display:flex;}
+  .hero-stats{gap:28px; flex-wrap:wrap;}
+  .card-hotel{flex-direction:column;}
+  .card-hotel .h-img{width:100%; height:220px;}
+  .contact-card{padding:30px;}
+  .newsletter{padding:44px 30px;}
+  .newsletter-form{max-width:100%;}
+  .footer-bottom{flex-direction:column; gap:10px; text-align:center;}
+}
+
+@media (max-width: 768px){
+  .section{padding:70px 0;}
+  .booking-card{padding:22px; margin-top:-50px;}
+  .booking-grid{grid-template-columns:1fr 1fr; gap:14px;}
+  .booking-submit{grid-column:1 / -1;}
+  .hero h1{font-size:2.6rem;}
+  .hero p{font-size:1rem;}
+  .dep-board{padding:40px 22px;}
+  .page-header{min-height:44vh; padding-bottom:40px;}
+  .filter-row{gap:8px;}
+  .pill{padding:8px 16px; font-size:.72rem;}
+}
+
+@media (max-width: 560px){
+  .booking-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:22px;}
+  .hero-stat b{font-size:1.5rem;}
+  .contact-card{padding:24px;}
+  .search-bar{padding:6px 6px 6px 16px;}
+  #back-to-top{width:42px; height:42px; bottom:20px; right:20px;}
+  #toast-stack{left:16px; right:16px; bottom:20px;}
+  .toast-m{min-width:0;}
+}

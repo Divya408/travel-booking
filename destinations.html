@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destinations — Meridian</title>
+<meta name="description" content="Browse Meridian's charted destinations by category, rating and price.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-mark">Meridian</div>
+  <div class="loader-bar"></div>
+  <div class="loader-coord">LOADING CHART — DESTINATIONS</div>
+</div>
+<div id="scroll-progress"></div>
+
+<nav class="m-nav">
+  <div class="container-x">
+    <a href="index.html" class="m-brand"><span class="dot"></span>Meridian</a>
+    <ul class="m-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="hotels.html">Hotels</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="m-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <a href="packages.html" class="btn-nav-cta d-none d-md-inline-flex">Book a Trip</a>
+      <button class="m-burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="m-mobile-panel">
+  <button class="m-mobile-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="destinations.html">Destinations</a>
+  <a href="hotels.html">Hotels</a>
+  <a href="packages.html">Packages</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<header class="page-header" style="background:linear-gradient(180deg, rgba(16,32,43,.3), rgba(16,32,43,.9)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1800&q=80') center/cover;">
+  <div class="container-x">
+    <div class="breadcrumb-m"><a href="index.html">Home</a> / Destinations</div>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.6rem); font-weight:500;">Every destination we've charted</h1>
+    <p style="max-width:520px; color:var(--text-sand-muted);">94 countries, one search bar. Filter by mood, not just map pins.</p>
+  </div>
+</header>
+
+<section class="section-tight">
+  <div class="container-x">
+    <div class="d-flex flex-wrap gap-3 justify-content-between align-items-center mb-4" data-aos="fade-up">
+      <div class="search-bar" style="max-width:420px; flex:1;">
+        <i class="fa-solid fa-magnifying-glass text-muted-m"></i>
+        <input type="text" placeholder="Search destinations…" data-search-target="#dest-grid" aria-label="Search destinations">
+        <button aria-label="Search"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <div class="filter-row" data-target="#dest-grid">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="mountains">Mountains</button>
+        <button class="pill" data-filter="city">City</button>
+        <button class="pill" data-filter="islands">Islands</button>
+        <button class="pill" data-filter="tropical">Tropical</button>
+        <button class="pill" data-filter="desert">Desert</button>
+      </div>
+    </div>
+
+    <div class="row g-4" id="dest-grid">
+
+      <div class="col-lg-3 col-md-6" data-cat="mountains" data-name="Interlaken Switzerland" data-aos="fade-up">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=700&q=80" alt="Interlaken"><span class="badge-cat">Mountains</span><span class="rating"><i class="fa-solid fa-star"></i> 4.9</span></div>
+          <div class="body"><h4>Interlaken</h4><span class="coord">46.6863° N, 7.8632° E</span>
+            <div class="meta"><div class="price"><b>$1,240</b><span> / 6 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Interlaken details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="city" data-name="Dubai UAE" data-aos="fade-up" data-aos-delay="60">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=700&q=80" alt="Dubai"><span class="badge-cat">City</span><span class="rating"><i class="fa-solid fa-star"></i> 4.8</span></div>
+          <div class="body"><h4>Dubai</h4><span class="coord">25.2048° N, 55.2708° E</span>
+            <div class="meta"><div class="price"><b>$980</b><span> / 5 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Dubai details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="islands" data-name="Santorini Greece" data-aos="fade-up" data-aos-delay="120">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=700&q=80" alt="Santorini"><span class="badge-cat">Islands</span><span class="rating"><i class="fa-solid fa-star"></i> 5.0</span></div>
+          <div class="body"><h4>Santorini</h4><span class="coord">36.3932° N, 25.4615° E</span>
+            <div class="meta"><div class="price"><b>$1,560</b><span> / 7 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Santorini details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="tropical" data-name="Bali Indonesia" data-aos="fade-up" data-aos-delay="180">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=700&q=80" alt="Bali"><span class="badge-cat">Tropical</span><span class="rating"><i class="fa-solid fa-star"></i> 4.9</span></div>
+          <div class="body"><h4>Bali</h4><span class="coord">8.3405° S, 115.0920° E</span>
+            <div class="meta"><div class="price"><b>$890</b><span> / 6 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Bali details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="city" data-name="Paris France" data-aos="fade-up">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=700&q=80" alt="Paris"><span class="badge-cat">City</span><span class="rating"><i class="fa-solid fa-star"></i> 4.8</span></div>
+          <div class="body"><h4>Paris</h4><span class="coord">48.8566° N, 2.3522° E</span>
+            <div class="meta"><div class="price"><b>$1,120</b><span> / 5 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Paris details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="city" data-name="Kyoto Japan" data-aos="fade-up" data-aos-delay="60">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=700&q=80" alt="Kyoto"><span class="badge-cat">Culture</span><span class="rating"><i class="fa-solid fa-star"></i> 4.9</span></div>
+          <div class="body"><h4>Kyoto</h4><span class="coord">35.0116° N, 135.7681° E</span>
+            <div class="meta"><div class="price"><b>$1,340</b><span> / 8 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Kyoto details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="tropical" data-name="Maldives" data-aos="fade-up" data-aos-delay="120">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?auto=format&fit=crop&w=700&q=80" alt="Maldives"><span class="badge-cat">Islands</span><span class="rating"><i class="fa-solid fa-star"></i> 5.0</span></div>
+          <div class="body"><h4>Maldives</h4><span class="coord">3.2028° N, 73.2207° E</span>
+            <div class="meta"><div class="price"><b>$2,890</b><span> / 5 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Maldives details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="desert" data-name="Marrakech Morocco" data-aos="fade-up" data-aos-delay="180">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=700&q=80" alt="Marrakech"><span class="badge-cat">Desert</span><span class="rating"><i class="fa-solid fa-star"></i> 4.7</span></div>
+          <div class="body"><h4>Marrakech</h4><span class="coord">31.6295° N, 7.9811° W</span>
+            <div class="meta"><div class="price"><b>$760</b><span> / 5 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Marrakech details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="mountains" data-name="Patagonia Argentina" data-aos="fade-up">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1478827387698-1527781a4887?auto=format&fit=crop&w=700&q=80" alt="Patagonia"><span class="badge-cat">Mountains</span><span class="rating"><i class="fa-solid fa-star"></i> 4.9</span></div>
+          <div class="body"><h4>Patagonia</h4><span class="coord">49.3300° S, 72.8850° W</span>
+            <div class="meta"><div class="price"><b>$1,980</b><span> / 9 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Patagonia details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="city" data-name="New York USA" data-aos="fade-up" data-aos-delay="60">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80" alt="New York"><span class="badge-cat">City</span><span class="rating"><i class="fa-solid fa-star"></i> 4.7</span></div>
+          <div class="body"><h4>New York</h4><span class="coord">40.7128° N, 74.0060° W</span>
+            <div class="meta"><div class="price"><b>$1,050</b><span> / 4 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing New York details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="islands" data-name="Maui Hawaii" data-aos="fade-up" data-aos-delay="120">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" alt="Maui"><span class="badge-cat">Islands</span><span class="rating"><i class="fa-solid fa-star"></i> 4.8</span></div>
+          <div class="body"><h4>Maui</h4><span class="coord">20.7984° N, 156.3319° W</span>
+            <div class="meta"><div class="price"><b>$1,690</b><span> / 6 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Maui details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-cat="desert" data-name="Cairo Egypt" data-aos="fade-up" data-aos-delay="180">
+        <div class="card-dest">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=700&q=80" alt="Cairo"><span class="badge-cat">Desert</span><span class="rating"><i class="fa-solid fa-star"></i> 4.6</span></div>
+          <div class="body"><h4>Cairo</h4><span class="coord">30.0444° N, 31.2357° E</span>
+            <div class="meta"><div class="price"><b>$710</b><span> / 5 days</span></div><a href="#" class="btn-m btn-m-outline" data-demo-toast="Viewing Cairo details — demo only" style="padding:9px 16px; font-size:.8rem;">Details</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-x">
+    <div class="newsletter d-flex flex-wrap justify-content-between align-items-center gap-4" data-aos="zoom-in">
+      <div>
+        <span class="eyebrow" style="color:var(--rust);">Stay Charted</span>
+        <h3 class="font-display" style="font-size:1.8rem; margin:10px 0 6px;">Get fare drops before they board</h3>
+        <p style="color:var(--text-sand-muted); max-width:420px; margin:0;">One email a week. No spam, just routes worth taking.</p>
+      </div>
+      <form class="newsletter-form">
+        <input type="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn-m btn-m-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container-x">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand mb-3"><span style="width:8px;height:8px;background:var(--rust);border-radius:50%;display:inline-block;margin-right:8px;"></span>Meridian</div>
+        <p style="max-width:320px;">Charting routes for the curious since 2011. Every itinerary is mapped by someone who has actually made the trip.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6"><h6>Explore</h6><ul><li><a href="destinations.html">Destinations</a></li><li><a href="hotels.html">Hotels</a></li><li><a href="packages.html">Packages</a></li></ul></div>
+      <div class="col-lg-2 col-6"><h6>Company</h6><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div class="col-lg-2 col-6"><h6>Support</h6><ul><li><a href="#">Help Center</a></li><li><a href="#">Cancellations</a></li><li><a href="#">Travel Insurance</a></li></ul></div>
+      <div class="col-lg-2 col-6"><h6>Legal</h6><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Travel. All rights reserved.</span>
+      <span class="coord">Frontend demo · No backend connected</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="toast-stack"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="js/main.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/slider.js"></script>
+</body>
+</html>

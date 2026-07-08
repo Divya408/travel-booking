@@ -1,0 +1,48 @@
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+
+.fade-up{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+.fade-up.in{opacity:1; transform:translateY(0);}
+
+.reveal-line{position:relative; overflow:hidden;}
+
+@keyframes pulseDot{0%,100%{opacity:1;}50%{opacity:.35;}}
+.pulse-dot{animation:pulseDot 1.8s ease-in-out infinite;}
+
+@keyframes spinCompass{from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
+.spin-slow{animation:spinCompass 18s linear infinite;}
+
+/* Number counter uses JS to update textContent — this class only adds a flicker on change */
+@keyframes flipTick{
+  0%{transform:translateY(0); opacity:1;}
+  40%{transform:translateY(-6px); opacity:.4;}
+  100%{transform:translateY(0); opacity:1;}
+}
+.tick{animation:flipTick .4s ease;}
+
+/* Image zoom utility (hover handled per-component in style.css, this is generic) */
+.zoom-on-hover{overflow:hidden;}
+.zoom-on-hover img{transition:transform .6s ease;}
+.zoom-on-hover:hover img{transform:scale(1.08);}
+
+/* Skeleton shimmer, used while destination/hotel results filter */
+@keyframes shimmer{
+  0%{background-position:-400px 0;}
+  100%{background-position:400px 0;}
+}
+.skeleton{
+  background:linear-gradient(90deg, var(--sand-2) 25%, var(--paper) 37%, var(--sand-2) 63%);
+  background-size:400px 100%; animation:shimmer 1.4s linear infinite;
+}
+
+/* Filter grid transition */
+.filter-hide{opacity:0; transform:scale(.92); pointer-events:none; position:absolute; visibility:hidden;}
+.filter-show{opacity:1; transform:scale(1); transition:opacity .4s ease, transform .4s ease;}
+
+/* Toast slide handled inline in style.css but keep entrance keyframe available */
+@keyframes toastIn{from{transform:translateX(-120%); opacity:0;} to{transform:translateX(0); opacity:1;}}
